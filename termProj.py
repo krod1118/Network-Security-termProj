@@ -174,11 +174,13 @@ def decryptPoly(ciphertext, decryptOrder):
 
     decrypted = []
     cycleLength = len(decryptOrder)
+    index = 0
 
-    for index, letter in enumerate(ciphertext.lower()):
+    for letter in ciphertext.lower():
         if letter.isalpha():
             reverseCipher = decryptOrder[index % cycleLength]
             decrypted.append(reverseCipher[letter])
+            index += 1
         else:
             decrypted.append(letter)
     
