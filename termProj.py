@@ -153,15 +153,17 @@ def encryptPoly(plaintext, cyclePattern):
     #empty list and cycle length used for mod op
     ciphertext = []
     cycleLength = len(cyclePattern)
+    index = 0
 
 
-    for index, letter in enumerate(plaintext.lower()):
+    for letter in plaintext.lower():
         if letter.isalpha():
 
             #decide what step of polyalphabetic cipher to use by the index mod cyclelength
             cipher = cyclePattern[index % cycleLength]
             ciphertext.append(cipher[letter])
-            index +=1
+            index += 1
+            
         else:
             ciphertext.append(letter)
     return "".join(ciphertext)
